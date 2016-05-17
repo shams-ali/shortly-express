@@ -87,8 +87,23 @@ function(req, res) {
 /************************************************************/
 app.get('/login',
 function(req, res) {
-  // console.log('request is,', req.body);
-  res.status(301).send('yoolo!');
+  // if (express.session) {
+  //   //render the main page
+  // } else {
+  //   //render login page
+  // }
+  res.status(301).send(req.body);
+  //console.log('req: ', req );
+  res.render('login');
+});
+
+app.post('/login', function(req, res) {
+  if (true) {
+    console.log('TRUE');
+    res.redirect('/');
+  } else {
+    res.redirect('/login');
+  }
 });
 
 app.get('/signup',
@@ -101,7 +116,6 @@ app.post('/signup',
   function(req, res, next) {
     var user = new User({username: req.body.username, password: req.body.password})
     .save().then(function(posted) {
-      console.log('POSTED WHATD UP', posted);
       res.status(200).redirect('/');
       res.end();
     });

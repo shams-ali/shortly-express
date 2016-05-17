@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var request = require('request');
+var request = require('request'); 
 
 var db = require('../app/config'); 
 var Users = require('../app/collections/users');
@@ -286,7 +286,7 @@ describe('', function() {
 
   }); // 'Account Creation'
 
-  xdescribe('Account Login:', function() {
+  describe('Account Login:', function() {
 
     var requestWithSession = request.defaults({jar: true});
 
@@ -315,7 +315,7 @@ describe('', function() {
       });
     });
 
-    it('Users that do not exist are kept on login page', function(done) {
+    xit('Users that do not exist are kept on login page', function(done) {
       var options = {
         'method': 'POST',
         'uri': 'http://127.0.0.1:4568/login',
