@@ -8,8 +8,8 @@ var User = db.Model.extend({
   tableName: 'users',
   hasTimestamps: true,
   defaults: {
-    username: 'someusernamehere', //fix this
-    password: 'somepasswordhere' //fix this
+    'username': this.username, //fix this
+    'password': this.password //fix this
   }
   //add table properties here;
   //collumns username and passwords
@@ -19,3 +19,4 @@ var User = db.Model.extend({
   //this.on('creating' ...)
 
 module.exports = User;
+ 
