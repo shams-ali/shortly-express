@@ -99,9 +99,11 @@ app.get('/signup',
 
 app.post('/signup',
   function(req, res, next) {
-    console.log('this is headers: ', req.headers);
-    var user = new User({username: req.body.username, password: req.body.password}).save().then(function() {
-      next();  // this is just to pass the test
+    var user = new User({username: req.body.username, password: req.body.password})
+    .save().then(function(posted) {
+      console.log('POSTED WHATD UP', posted);
+      res.status(200).redirect('/');
+      res.end();
     });
 
   });
