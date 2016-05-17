@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 var request = require('request');
 
-var db = require('../app/config');
+var db = require('../app/config'); 
 var Users = require('../app/collections/users');
 var User = require('../app/models/user');
 var Links = require('../app/collections/links');
