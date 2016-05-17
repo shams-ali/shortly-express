@@ -2,6 +2,7 @@ var db = require('../config');
 var Click = require('./click');
 var crypto = require('crypto');
 var User = require('./user.js');
+
 var Link = db.Model.extend({
   tableName: 'urls',
   hasTimestamps: true,
