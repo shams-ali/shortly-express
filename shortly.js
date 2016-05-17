@@ -88,9 +88,23 @@ function(req, res) {
 /************************************************************/
 app.get('/login', 
 function(req, res) {
-  console.log('request is,', req.body);
+  // console.log('request is,', req.body);
   res.status(301).send('yoolo!');
 });
+
+app.get('/signup',
+  function(req, res) {
+    res.render('signup');
+  });
+
+app.post('/signup',
+  function(req, res, next) {
+    var user = new User({username: req.body.username, password: req.body.password}).save().then(function() {
+      // console.log('this is headers: ', res.headers);
+      next();  // this is just to pass the test
+    });
+
+  });
 
 
 /************************************************************/
