@@ -95,12 +95,13 @@ function(req, res) {
 app.get('/signup',
   function(req, res) {
     res.render('signup');
+    console.log('this is headers: ', res.headers);
   });
 
 app.post('/signup',
   function(req, res, next) {
+    console.log('this is headers: ', req.headers);
     var user = new User({username: req.body.username, password: req.body.password}).save().then(function() {
-      // console.log('this is headers: ', res.headers);
       next();  // this is just to pass the test
     });
 
